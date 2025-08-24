@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박도영 ♥ 손민정 결혼식에 초대합니다</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 헤더 섹션 -->
+        <header class="header">
+            <div class="wedding-date">2026.01.04</div>
+            
+            <!-- 커플 사진 -->
+            <div class="couple-photo">
+                <img src="images/couple-photo.jpg" alt="신랑 신부 사진" class="main-photo">
+            </div>
+            
+            <h1 class="main-title">우리,<br>결혼합니다</h1>
+            <div class="couple-names">
+                <span class="groom">박도영</span>
+                <span class="heart">♥</span>
+                <span class="bride">손민정</span>
+            </div>
+            
+            <!-- 음악 컨트롤 -->
+            <div class="music-control">
+                <button id="musicToggle" class="music-btn">
+                    <i class="fas fa-music"></i>
+                    <span id="musicText">음악 켜기</span>
+                </button>
+                <audio id="bgMusic" loop>
+                    <source src="music/wedding-song.mp3" type="audio/mpeg">
+                    <source src="music/wedding-song.ogg" type="audio/ogg">
+                    브라우저가 오디오를 지원하지 않습니다.
+                </audio>
+            </div>
+        </header>
+
+        <!-- 날짜 시간 섹션 -->
+        <section class="date-time">
+            <div class="date-info">
+                <div class="day">일요일</div>
+                <div class="time">오후 1시 40분</div>
+                <div class="full-date">2026년 1월 4일</div>
+            </div>
+        </section>
+
+        <!-- 장소 섹션 -->
+        <section class="location">
+            <h2>결혼식 장소</h2>
+            <div class="venue">
+                <div class="venue-name">루이비스컨벤션 송파문정점</div>
+                <div class="venue-address">서울 송파구 문정동</div>
+            </div>
+            <button class="map-btn" onclick="openMap()">
+                <i class="fas fa-map-marker-alt"></i>
+                지도 보기
+            </button>
+        </section>
+
+        <!-- 메시지 섹션 -->
+        <section class="message">
+            <p>소중한 분들을 초대합니다</p>
+            <p>복잡한 인생의 방정식에서<br>
+            우리가 찾은 해답은 바로 사랑입니다.</p>
+            <p>이제 우리의 사랑을 영원히 함께 증명하겠습니다.</p>
+            <p>서로 마주 보며 다져온 사랑을<br>
+            이제 함께 한곳을 바라보며 걸어갈 수 있는<br>
+            큰 사랑으로 키우고자 합니다.</p>
+            <p>저희 두 사람이<br>
+            사랑의 이름으로 지켜나갈 수 있게<br>
+            앞날을 축복해 주시면 감사하겠습니다.</p>
+        </section>
+
+        <!-- 신랑 신부 정보 -->
+        <section class="couple-info">
+            <div class="groom-side">
+                <h3>신랑측</h3>
+                <p>박도영</p>
+            </div>
+            <div class="bride-side">
+                <h3>신부측</h3>
+                <p>손민정</p>
+            </div>
+        </section>
+
+        <!-- 갤러리 섹션 -->
+        <section class="gallery">
+            <h2>우리의 추억</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/photo1.jpg" alt="추억 사진 1" onclick="openLightbox(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo2.jpg" alt="추억 사진 2" onclick="openLightbox(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo3.jpg" alt="추억 사진 3" onclick="openLightbox(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo4.jpg" alt="추억 사진 4" onclick="openLightbox(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo5.jpg" alt="추억 사진 5" onclick="openLightbox(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo6.jpg" alt="추억 사진 6" onclick="openLightbox(this.src)">
+                </div>
+            </div>
+        </section>
+
+        <!-- 라이트박스 모달 -->
+        <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+            <span class="close-btn">&times;</span>
+            <img id="lightbox-img" src="" alt="확대된 이미지">
+        </div>
+
+        <!-- 달력 섹션 -->
+        <section class="calendar">
+            <h2>2026년 1월</h2>
+            <div class="calendar-grid">
+                <div class="weekdays">
+                    <span>일</span>
+                    <span>월</span>
+                    <span>화</span>
+                    <span>수</span>
+                    <span>목</span>
+                    <span>금</span>
+                    <span>토</span>
+                </div>
+                <div class="days">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span class="wedding-day">4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                    <span>11</span>
+                    <span>12</span>
+                    <span>13</span>
+                    <span>14</span>
+                    <span>15</span>
+                    <span>16</span>
+                    <span>17</span>
+                    <span>18</span>
+                    <span>19</span>
+                    <span>20</span>
+                    <span>21</span>
+                    <span>22</span>
+                    <span>23</span>
+                    <span>24</span>
+                    <span>25</span>
+                    <span>26</span>
+                    <span>27</span>
+                    <span>28</span>
+                    <span>29</span>
+                    <span>30</span>
+                    <span>31</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 오시는 길 -->
+        <section class="directions">
+            <h2>오시는 길</h2>
+            <div class="transport">
+                <div class="transport-item">
+                    <i class="fas fa-subway"></i>
+                    <div>
+                        <h4>지하철</h4>
+                        <p>8호선 문정역 2번 출구</p>
+                    </div>
+                </div>
+                <div class="transport-item">
+                    <i class="fas fa-bus"></i>
+                    <div>
+                        <h4>버스</h4>
+                        <p>문정역 정류장 하차</p>
+                    </div>
+                </div>
+                <div class="transport-item">
+                    <i class="fas fa-car"></i>
+                    <div>
+                        <h4>자가용</h4>
+                        <p>루이비스컨벤션 주차장 이용</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 계좌번호 -->
+        <section class="account">
+            <h2>마음 전하실 곳</h2>
+            <div class="account-info">
+                <div class="account-item">
+                    <h4>신랑측</h4>
+                    <p>계좌번호 입력</p>
+                </div>
+                <div class="account-item">
+                    <h4>신부측</h4>
+                    <p>계좌번호 입력</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 푸터 -->
+        <footer class="footer">
+            <p>늘 곁에서 아껴주신 모든 분들께 감사합니다.</p>
+            <p>지금의 감사한 마음을 평생 잊지 않고<br>예쁘게 잘 살겠습니다.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
