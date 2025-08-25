@@ -63,10 +63,21 @@ function openLightbox(imageSrc) {
     lightboxImg.src = imageSrc;
     lightbox.style.display = 'block';
     
+    // 현재 이미지 인덱스 저장
+    const galleryImages = document.querySelectorAll('.gallery-item img');
+    let currentIndex = Array.from(galleryImages).findIndex(img => img.src === imageSrc);
+    
+    // 전역 변수로 현재 인덱스 저장
+    window.currentLightboxIndex = currentIndex;
+    
     // ESC 키로 닫기
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             closeLightbox();
+        } else if (e.key === 'ArrowLeft') {
+            showPrevImage(e);
+        } else if (e.key === 'ArrowRight') {
+            showNextImage(e);
         }
     });
 }
@@ -75,6 +86,32 @@ function openLightbox(imageSrc) {
 function closeLightbox() {
     const lightbox = document.getElementById('lightbox');
     lightbox.style.display = 'none';
+}
+
+// 이전 이미지 보기
+function showPrevImage(event) {
+    event.stopPropagation();
+    const galleryImages = document.querySelectorAll('.gallery-item img');
+    let currentIndex = window.currentLightboxIndex || 0;
+    
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    window.currentLightboxIndex = currentIndex;
+    
+    const lightboxImg = document.getElementById('lightbox-img');
+    lightboxImg.src = galleryImages[currentIndex].src;
+}
+
+// 다음 이미지 보기
+function showNextImage(event) {
+    event.stopPropagation();
+    const galleryImages = document.querySelectorAll('.gallery-item img');
+    let currentIndex = window.currentLightboxIndex || 0;
+    
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    window.currentLightboxIndex = currentIndex;
+    
+    const lightboxImg = document.getElementById('lightbox-img');
+    lightboxImg.src = galleryImages[currentIndex].src;
 }
 
 // 스크롤 애니메이션 효과
