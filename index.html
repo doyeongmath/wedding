@@ -14,6 +14,11 @@
         <header class="header">
             <div class="wedding-date">2026.01.04</div>
             
+            <!-- 상단 이미지 추가 -->
+            <div class="top-image">
+                <img src="images/KakaoTalk_20250817_165515587.jpg" alt="웨딩 이미지" class="header-image">
+            </div>
+            
             <!-- 커플 사진 -->
             <div class="couple-photo">
                 <img src="images/couple-photo.jpg" alt="신랑 신부 사진" class="main-photo">
@@ -93,22 +98,34 @@
             <h2>우리의 추억</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="images/photo1.jpg" alt="추억 사진 1" onclick="openLightbox(this.src)">
+                    <img src="images/IMG_4626.JPG" alt="추억 사진 1" loading="lazy" onclick="openLightbox(this.src)">
                 </div>
                 <div class="gallery-item">
-                    <img src="images/photo2.jpg" alt="추억 사진 2" onclick="openLightbox(this.src)">
+                    <img src="images/KakaoTalk_20250817_165515587_01.jpg" alt="추억 사진 2" loading="lazy" onclick="openLightbox(this.src)">
                 </div>
                 <div class="gallery-item">
-                    <img src="images/photo3.jpg" alt="추억 사진 3" onclick="openLightbox(this.src)">
+                    <img src="images/KakaoTalk_20250817_165515587_02.jpg" alt="추억 사진 3" loading="lazy" onclick="openLightbox(this.src)">
                 </div>
                 <div class="gallery-item">
-                    <img src="images/photo4.jpg" alt="추억 사진 4" onclick="openLightbox(this.src)">
+                    <img src="images/KakaoTalk_20250817_165515587_03.jpg" alt="추억 사진 4" loading="lazy" onclick="openLightbox(this.src)">
                 </div>
                 <div class="gallery-item">
-                    <img src="images/photo5.jpg" alt="추억 사진 5" onclick="openLightbox(this.src)">
+                    <img src="images/KakaoTalk_20250817_165515587_04.jpg" alt="추억 사진 5" loading="lazy" onclick="openLightbox(this.src)">
                 </div>
                 <div class="gallery-item">
-                    <img src="images/photo6.jpg" alt="추억 사진 6" onclick="openLightbox(this.src)">
+                    <img src="images/KakaoTalk_20250817_165515587_05.jpg" alt="추억 사진 6" loading="lazy" onclick="openLightbox(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/KakaoTalk_20250817_165515587_06.jpg" alt="추억 사진 7" loading="lazy" onclick="openLightbox(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/KakaoTalk_20250817_165515587_07.jpg" alt="추억 사진 8" loading="lazy" onclick="openLightbox(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/KakaoTalk_20250817_165515587.jpg" alt="추억 사진 9" loading="lazy" onclick="openLightbox(this.src)">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/IMG_4626.JPG" alt="추억 사진 10" loading="lazy" onclick="openLightbox(this.src)">
                 </div>
             </div>
         </section>
@@ -116,6 +133,12 @@
         <!-- 라이트박스 모달 -->
         <div id="lightbox" class="lightbox" onclick="closeLightbox()">
             <span class="close-btn">&times;</span>
+            <button class="nav-btn prev-btn" onclick="showPrevImage(event)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="nav-btn next-btn" onclick="showNextImage(event)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
             <img id="lightbox-img" src="" alt="확대된 이미지">
         </div>
 
