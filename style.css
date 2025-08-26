@@ -367,13 +367,15 @@ body {
     }
     
     .gallery-item.horizontal img {
-        aspect-ratio: 8100/5403;
-        max-height: 120px;
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
     }
     
     .gallery-item.vertical img {
-        aspect-ratio: 1/2;
-        max-height: 160px;
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
     }
     
     .close-btn {
@@ -408,13 +410,15 @@ body {
     }
     
     .gallery-item.horizontal img {
-        aspect-ratio: 8100/5403;
-        max-height: 100px;
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
     }
     
     .gallery-item.vertical img {
-        aspect-ratio: 1/2;
-        max-height: 140px;
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
     }
     
     .close-btn {
@@ -471,16 +475,16 @@ body {
 
 /* 가로 이미지 */
 .gallery-item.horizontal img {
-    aspect-ratio: 8100/5403;
+    width: 100%;
+    height: 180px;
     object-fit: cover;
-    max-height: 150px;
 }
 
 /* 세로 이미지 */
 .gallery-item.vertical img {
-    aspect-ratio: 1/2;
+    width: 100%;
+    height: 240px;
     object-fit: cover;
-    max-height: 200px;
 }
 
 
@@ -564,8 +568,8 @@ body {
 }
 
 #lightbox-img {
-    width: 90%;
-    height: 90%;
+    width: 80%;
+    height: 80%;
     object-fit: contain;
     border-radius: 0;
     box-shadow: none;

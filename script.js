@@ -157,12 +157,21 @@ function initializeGallery() {
     
     galleryImages.forEach((img, index) => {
         img.style.cursor = 'pointer'; // 커서 스타일 추가
+        
+        // 클릭 이벤트
         img.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
             console.log('Image clicked:', this.src); // 디버깅용
             openLightbox(this.src);
         });
+        
+        // 모바일 터치 이벤트 추가
+        img.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            console.log('Image touched:', this.src); // 디버깅용
+            openLightbox(this.src);
+        }, { passive: false });
     });
 }
 
