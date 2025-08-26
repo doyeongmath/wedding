@@ -133,18 +133,7 @@ body {
     position: relative;
 }
 
-.date-time::before {
-    content: '';
-    position: absolute;
-    top: -50px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 50%;
-    z-index: -1;
-}
+
 
 .date-info {
     max-width: 600px;
