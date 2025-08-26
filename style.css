@@ -282,9 +282,14 @@ body {
         font-size: 16px;
     }
     
+    .page-indicator {
+        gap: 6px;
+        max-width: 180px;
+    }
+    
     .page-dot {
-        width: 10px;
-        height: 10px;
+        width: 8px;
+        height: 8px;
     }
 }
 
@@ -319,9 +324,14 @@ body {
         font-size: 14px;
     }
     
+    .page-indicator {
+        gap: 5px;
+        max-width: 160px;
+    }
+    
     .page-dot {
-        width: 8px;
-        height: 8px;
+        width: 7px;
+        height: 7px;
     }
     
     .gallery-card img {
@@ -495,12 +505,15 @@ body {
 
 .page-indicator {
     display: flex;
-    gap: 12px;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 200px;
 }
 
 .page-dot {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background: #e0e0e0;
     cursor: pointer;
@@ -509,7 +522,6 @@ body {
 
 .page-dot.active {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    message: 0;
     transform: scale(1.2);
 }
 

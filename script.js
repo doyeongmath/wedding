@@ -156,7 +156,14 @@ function initializeGallery() {
     updateNavArrows();
     updatePageIndicator();
     
-    console.log('Gallery initialized with card navigation');
+    // 터치 이벤트 리스너 추가
+    const galleryContainer = document.querySelector('.gallery-card-container');
+    if (galleryContainer) {
+        galleryContainer.addEventListener('touchstart', handleTouchStart, { passive: true });
+        galleryContainer.addEventListener('touchend', handleTouchEnd, { passive: true });
+    }
+    
+    console.log('Gallery initialized with card navigation and swipe support');
 }
 
 // 줌 방지 함수
@@ -214,6 +221,8 @@ function updateCountdown() {
 // 갤러리 카드 네비게이션
 let currentCard = 1;
 const totalCards = 8;
+let startX = 0;
+let endX = 0;
 
 function showCard(cardNumber) {
     // 모든 카드 숨기기
@@ -245,9 +254,7 @@ function prevGalleryPage() {
     }
 }
 
-function goToPage(pageNumber) {
-    // 페이지 번호를 카드 번호로 변환 (3개씩 그룹)
-    const cardNumber = (pageNumber - 1) * 3 + 1;
+function goToCard(cardNumber) {
     if (cardNumber >= 1 && cardNumber <= totalCards) {
         showCard(cardNumber);
     }
@@ -262,16 +269,38 @@ function updateNavArrows() {
 }
 
 function updatePageIndicator() {
-    // 현재 카드가 속한 페이지 계산
-    const currentPage = Math.ceil(currentCard / 3);
-    
     // 모든 페이지 점 업데이트
     document.querySelectorAll('.page-dot').forEach((dot, index) => {
         dot.classList.remove('active');
-        if (index === currentPage - 1) {
+        if (index === currentCard - 1) {
             dot.classList.add('active');
         }
     });
+}
+
+// 스와이프 기능
+function handleTouchStart(e) {
+    startX = e.touches[0].clientX;
+}
+
+function handleTouchEnd(e) {
+    endX = e.changedTouches[0].clientX;
+    handleSwipe();
+}
+
+function handleSwipe() {
+    const swipeThreshold = 50; // 스와이프 감지 임계값
+    const diff = startX - endX;
+    
+    if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+            // 왼쪽으로 스와이프 (다음 카드)
+            nextGalleryPage();
+        } else {
+            // 오른쪽으로 스와이프 (이전 카드)
+            prevGalleryPage();
+        }
+    }
 }
 
 // DOM이 준비되면 이벤트 리스너 설정
