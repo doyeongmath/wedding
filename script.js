@@ -152,10 +152,11 @@ function animateOnScroll() {
 // 페이지 로드 시 애니메이션 시작 및 이벤트 리스너 설정
 function initializeGallery() {
     // 갤러리 초기화
-    showPage(1);
+    showCard(1);
     updateNavArrows();
+    updatePageIndicator();
     
-    console.log('Gallery initialized with page navigation');
+    console.log('Gallery initialized with card navigation');
 }
 
 // 줌 방지 함수
@@ -210,42 +211,45 @@ function updateCountdown() {
     }
 }
 
-// 갤러리 페이지 네비게이션
-let currentPage = 1;
-const totalPages = 3;
+// 갤러리 카드 네비게이션
+let currentCard = 1;
+const totalCards = 8;
 
-function showPage(pageNumber) {
-    // 모든 페이지 숨기기
-    for (let i = 1; i <= totalPages; i++) {
-        document.getElementById(`page${i}`).classList.remove('active');
-        document.querySelectorAll('.page-dot')[i-1].classList.remove('active');
+function showCard(cardNumber) {
+    // 모든 카드 숨기기
+    for (let i = 1; i <= totalCards; i++) {
+        document.getElementById(`card${i}`).classList.remove('active');
     }
     
-    // 선택된 페이지 보이기
-    document.getElementById(`page${pageNumber}`).classList.add('active');
-    document.querySelectorAll('.page-dot')[pageNumber-1].classList.add('active');
+    // 선택된 카드 보이기
+    document.getElementById(`card${cardNumber}`).classList.add('active');
     
-    currentPage = pageNumber;
+    currentCard = cardNumber;
     
     // 네비게이션 화살표 상태 업데이트
     updateNavArrows();
+    
+    // 페이지 인디케이터 업데이트
+    updatePageIndicator();
 }
 
 function nextGalleryPage() {
-    if (currentPage < totalPages) {
-        showPage(currentPage + 1);
+    if (currentCard < totalCards) {
+        showCard(currentCard + 1);
     }
 }
 
 function prevGalleryPage() {
-    if (currentPage > 1) {
-        showPage(currentPage - 1);
+    if (currentCard > 1) {
+        showCard(currentCard - 1);
     }
 }
 
 function goToPage(pageNumber) {
-    if (pageNumber >= 1 && pageNumber <= totalPages) {
-        showPage(pageNumber);
+    // 페이지 번호를 카드 번호로 변환 (3개씩 그룹)
+    const cardNumber = (pageNumber - 1) * 3 + 1;
+    if (cardNumber >= 1 && cardNumber <= totalCards) {
+        showCard(cardNumber);
     }
 }
 
@@ -253,8 +257,21 @@ function updateNavArrows() {
     const prevArrow = document.querySelector('.prev-arrow');
     const nextArrow = document.querySelector('.next-arrow');
     
-    prevArrow.disabled = currentPage === 1;
-    nextArrow.disabled = currentPage === totalPages;
+    prevArrow.disabled = currentCard === 1;
+    nextArrow.disabled = currentCard === totalCards;
+}
+
+function updatePageIndicator() {
+    // 현재 카드가 속한 페이지 계산
+    const currentPage = Math.ceil(currentCard / 3);
+    
+    // 모든 페이지 점 업데이트
+    document.querySelectorAll('.page-dot').forEach((dot, index) => {
+        dot.classList.remove('active');
+        if (index === currentPage - 1) {
+            dot.classList.add('active');
+        }
+    });
 }
 
 // DOM이 준비되면 이벤트 리스너 설정

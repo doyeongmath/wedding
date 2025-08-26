@@ -324,8 +324,8 @@ body {
         height: 8px;
     }
     
-    .gallery-item img {
-        height: 150px;
+    .gallery-card img {
+        max-width: 280px;
     }
 }
 
@@ -517,18 +517,35 @@ body {
     background: #667eea;
 }
 
-/* 갤러리 페이지 */
-.gallery-page {
-    display: none;
-    animation: fadeIn 0.5s ease-in-out;
+/* 갤러리 카드 */
+.gallery-card-container {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+    overflow: hidden;
 }
 
-.gallery-page.active {
+.gallery-card {
+    display: none;
+    text-align: center;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+.gallery-card.active {
     display: block;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateX(20px); }
+.gallery-card img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(50px); }
     to { opacity: 1; transform: translateX(0); }
 }
 
