@@ -482,7 +482,7 @@ body {
 }
 
 .lightbox.active {
-    display: flex;
+    display: flex !important;
 }
 
 .close-btn {

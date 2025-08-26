@@ -57,11 +57,20 @@ function openMap() {
 
 // 라이트박스 열기
 function openLightbox(imageSrc) {
+    console.log('openLightbox called with:', imageSrc); // 디버깅용
+    
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     
+    if (!lightbox || !lightboxImg) {
+        console.error('Lightbox elements not found!');
+        return;
+    }
+    
     lightboxImg.src = imageSrc;
     lightbox.classList.add('active');
+    
+    console.log('Lightbox opened, class added:', lightbox.classList.contains('active')); // 디버깅용
     
     // 현재 이미지 인덱스 저장
     const galleryImages = document.querySelectorAll('.gallery-item img');
