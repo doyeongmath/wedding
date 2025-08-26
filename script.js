@@ -151,28 +151,11 @@ function animateOnScroll() {
 
 // 페이지 로드 시 애니메이션 시작 및 이벤트 리스너 설정
 function initializeGallery() {
-    // 갤러리 이미지 클릭 이벤트 리스너 추가
-    const galleryImages = document.querySelectorAll('.gallery-item img');
-    console.log('Found gallery images:', galleryImages.length); // 디버깅용
+    // 갤러리 초기화
+    showPage(1);
+    updateNavArrows();
     
-    galleryImages.forEach((img, index) => {
-        img.style.cursor = 'pointer'; // 커서 스타일 추가
-        
-        // 클릭 이벤트
-        img.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log('Image clicked:', this.src); // 디버깅용
-            openLightbox(this.src);
-        });
-        
-        // 모바일 터치 이벤트 추가
-        img.addEventListener('touchstart', function(e) {
-            e.preventDefault();
-            console.log('Image touched:', this.src); // 디버깅용
-            openLightbox(this.src);
-        }, { passive: false });
-    });
+    console.log('Gallery initialized with page navigation');
 }
 
 // 줌 방지 함수
@@ -202,10 +185,85 @@ function preventZoom() {
     }, false);
 }
 
+// 카운트다운 타이머 함수
+function updateCountdown() {
+    const weddingDate = new Date('2026-01-04T13:40:00');
+    const now = new Date();
+    const difference = weddingDate - now;
+    
+    if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+        
+        document.getElementById('days').textContent = days.toString().padStart(2, '0');
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    } else {
+        // 결혼식이 지난 경우
+        document.getElementById('days').textContent = '00';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+    }
+}
+
+// 갤러리 페이지 네비게이션
+let currentPage = 1;
+const totalPages = 3;
+
+function showPage(pageNumber) {
+    // 모든 페이지 숨기기
+    for (let i = 1; i <= totalPages; i++) {
+        document.getElementById(`page${i}`).classList.remove('active');
+        document.querySelectorAll('.page-dot')[i-1].classList.remove('active');
+    }
+    
+    // 선택된 페이지 보이기
+    document.getElementById(`page${pageNumber}`).classList.add('active');
+    document.querySelectorAll('.page-dot')[pageNumber-1].classList.add('active');
+    
+    currentPage = pageNumber;
+    
+    // 네비게이션 화살표 상태 업데이트
+    updateNavArrows();
+}
+
+function nextGalleryPage() {
+    if (currentPage < totalPages) {
+        showPage(currentPage + 1);
+    }
+}
+
+function prevGalleryPage() {
+    if (currentPage > 1) {
+        showPage(currentPage - 1);
+    }
+}
+
+function goToPage(pageNumber) {
+    if (pageNumber >= 1 && pageNumber <= totalPages) {
+        showPage(pageNumber);
+    }
+}
+
+function updateNavArrows() {
+    const prevArrow = document.querySelector('.prev-arrow');
+    const nextArrow = document.querySelector('.next-arrow');
+    
+    prevArrow.disabled = currentPage === 1;
+    nextArrow.disabled = currentPage === totalPages;
+}
+
 // DOM이 준비되면 이벤트 리스너 설정
 document.addEventListener('DOMContentLoaded', function() {
     initializeGallery();
     preventZoom();
+    updateCountdown();
+    // 1초마다 카운트다운 업데이트
+    setInterval(updateCountdown, 1000);
 });
 
 // 페이지 완전 로드 후에도 한 번 더 실행
@@ -213,6 +271,9 @@ window.addEventListener('load', function() {
     animateOnScroll();
     initializeGallery();
     preventZoom();
+    updateCountdown();
+    // 1초마다 카운트다운 업데이트
+    setInterval(updateCountdown, 1000);
 });
 
 // 부드러운 스크롤 효과

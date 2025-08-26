@@ -47,6 +47,26 @@
                 <div class="time">오후 1시 40분</div>
                 <div class="full-date">2026년 1월 4일</div>
             </div>
+            
+            <!-- 카운트다운 타이머 -->
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">DAYS</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">HOUR</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">MINS</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">SEC</span>
+                </div>
+            </div>
         </section>
 
         <!-- 장소 섹션 -->
@@ -92,27 +112,60 @@
         <section class="gallery">
             <h2>소중한 순간들</h2>
             
-            <div class="gallery-grid">
-                <div class="gallery-item vertical">
-                    <img src="images/gallery-photos/1.jpg" alt="추억 사진 1" loading="lazy">
+            <!-- 갤러리 네비게이션 -->
+            <div class="gallery-nav">
+                <button class="nav-arrow prev-arrow" onclick="prevGalleryPage()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="page-indicator">
+                    <span class="page-dot active" onclick="goToPage(1)"></span>
+                    <span class="page-dot" onclick="goToPage(2)"></span>
+                    <span class="page-dot" onclick="goToPage(3)"></span>
                 </div>
-                <div class="gallery-item vertical">
-                    <img src="images/gallery-photos/2.jpg" alt="추억 사진 2" loading="lazy">
+                <button class="nav-arrow next-arrow" onclick="nextGalleryPage()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <!-- 갤러리 페이지 1 -->
+            <div class="gallery-page active" id="page1">
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="images/gallery-photos/1.jpg" alt="추억 사진 1" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gallery-photos/2.jpg" alt="추억 사진 2" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gallery-photos/3.jpg" alt="추억 사진 3" loading="lazy">
+                    </div>
                 </div>
-                <div class="gallery-item vertical">
-                    <img src="images/gallery-photos/3.jpg" alt="추억 사진 3" loading="lazy">
+            </div>
+            
+            <!-- 갤러리 페이지 2 -->
+            <div class="gallery-page" id="page2">
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="images/gallery-photos/4.jpg" alt="추억 사진 4" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gallery-photos/5.jpg" alt="추억 사진 5" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gallery-photos/6.jpg" alt="추억 사진 6" loading="lazy">
+                    </div>
                 </div>
-                <div class="gallery-item vertical">
-                    <img src="images/gallery-photos/4.jpg" alt="추억 사진 4" loading="lazy">
-                </div>
-                <div class="gallery-item vertical">
-                    <img src="images/gallery-photos/5.jpg" alt="추억 사진 5" loading="lazy">
-                </div>
-                <div class="gallery-item vertical">
-                    <img src="images/gallery-photos/6.jpg" alt="추억 사진 6" loading="lazy">
-                </div>
-                <div class="gallery-item horizontal">
-                    <img src="images/header-photos/1.jpg" alt="헤더 이미지" loading="lazy">
+            </div>
+            
+            <!-- 갤러리 페이지 3 -->
+            <div class="gallery-page" id="page3">
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="images/gallery-photos/7.jpg" alt="추억 사진 7" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/header-photos/1.jpg" alt="헤더 이미지" loading="lazy">
+                    </div>
                 </div>
             </div>
         </section>
