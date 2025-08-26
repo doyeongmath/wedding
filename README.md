@@ -52,7 +52,6 @@
 `index.html` 파일에서 원하는 텍스트로 변경하세요.
 
 ### 이미지 추가/교체
-- **헤더 이미지**: `images/header-photos/1.jpg`
 - **갤러리**: 
   - 첫 번째: `images/main-photos/1.jpg` (신랑 신부 메인 사진)
   - 나머지: `images/gallery-photos/1.jpg` ~ `6.jpg`
