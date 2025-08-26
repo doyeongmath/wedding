@@ -152,6 +152,14 @@ function animateOnScroll() {
 // 페이지 로드 시 애니메이션 시작
 window.addEventListener('load', function() {
     animateOnScroll();
+    
+    // 갤러리 이미지 클릭 이벤트 리스너 추가
+    const galleryImages = document.querySelectorAll('.gallery-item img');
+    galleryImages.forEach(img => {
+        img.addEventListener('click', function() {
+            openLightbox(this.src);
+        });
+    });
 });
 
 // 부드러운 스크롤 효과
