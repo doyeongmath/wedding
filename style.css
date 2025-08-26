@@ -371,7 +371,7 @@ body {
     }
     
     .gallery-item.vertical img {
-        aspect-ratio: 5403/8100;
+        aspect-ratio: 1/2;
     }
     
     .close-btn {
@@ -410,7 +410,7 @@ body {
     }
     
     .gallery-item.vertical img {
-        aspect-ratio: 5403/8100;
+        aspect-ratio: 1/2;
     }
     
     .close-btn {
@@ -473,7 +473,7 @@ body {
 
 /* 세로 이미지 */
 .gallery-item.vertical img {
-    aspect-ratio: 5403/8100;
+    aspect-ratio: 1/2;
     object-fit: cover;
 }
 
