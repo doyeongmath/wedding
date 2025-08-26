@@ -348,6 +348,14 @@ body {
     border-radius: 2px;
 }
 
+.gallery h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #667eea;
+    margin: 30px 0 20px;
+    text-align: center;
+}
+
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -364,8 +372,12 @@ body {
         padding: 0 20px;
     }
     
-    .gallery-item img {
-        aspect-ratio: 4/3;
+    .gallery-item.horizontal img {
+        aspect-ratio: 16/9;
+    }
+    
+    .gallery-item.vertical img {
+        aspect-ratio: 3/4;
     }
     
     .close-btn {
@@ -399,8 +411,12 @@ body {
         padding: 0 25px;
     }
     
-    .gallery-item img {
-        height: 250px;
+    .gallery-item.horizontal img {
+        aspect-ratio: 16/9;
+    }
+    
+    .gallery-item.vertical img {
+        aspect-ratio: 3/4;
     }
     
     .close-btn {
@@ -448,8 +464,6 @@ body {
 
 .gallery-item img {
     width: 100%;
-    aspect-ratio: 4/3;
-    object-fit: cover;
     transition: transform 0.15s ease-out;
     /* 초고속 최적화 */
     will-change: transform;
@@ -457,18 +471,19 @@ body {
     backface-visibility: hidden;
 }
 
-/* 모바일 이미지 크기 최적화 */
-@media (max-width: 768px) {
-    .gallery-item img {
-        height: 200px;
-    }
+/* 가로 이미지 */
+.gallery-item.horizontal img {
+    aspect-ratio: 16/9;
+    object-fit: cover;
 }
 
-@media (max-width: 480px) {
-    .gallery-item img {
-        aspect-ratio: 4/3;
-    }
+/* 세로 이미지 */
+.gallery-item.vertical img {
+    aspect-ratio: 3/4;
+    object-fit: cover;
 }
+
+
 
 .gallery-item:hover img {
     transform: scale(1.05) translate3d(0, 0, 0);

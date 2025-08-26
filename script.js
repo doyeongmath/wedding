@@ -149,17 +149,32 @@ function animateOnScroll() {
     });
 }
 
-// 페이지 로드 시 애니메이션 시작
-window.addEventListener('load', function() {
-    animateOnScroll();
-    
+// 페이지 로드 시 애니메이션 시작 및 이벤트 리스너 설정
+function initializeGallery() {
     // 갤러리 이미지 클릭 이벤트 리스너 추가
     const galleryImages = document.querySelectorAll('.gallery-item img');
-    galleryImages.forEach(img => {
-        img.addEventListener('click', function() {
+    console.log('Found gallery images:', galleryImages.length); // 디버깅용
+    
+    galleryImages.forEach((img, index) => {
+        img.style.cursor = 'pointer'; // 커서 스타일 추가
+        img.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Image clicked:', this.src); // 디버깅용
             openLightbox(this.src);
         });
     });
+}
+
+// DOM이 준비되면 이벤트 리스너 설정
+document.addEventListener('DOMContentLoaded', function() {
+    initializeGallery();
+});
+
+// 페이지 완전 로드 후에도 한 번 더 실행
+window.addEventListener('load', function() {
+    animateOnScroll();
+    initializeGallery();
 });
 
 // 부드러운 스크롤 효과
