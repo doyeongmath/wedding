@@ -175,15 +175,44 @@ function initializeGallery() {
     });
 }
 
+// 줌 방지 함수
+function preventZoom() {
+    // 휠 줌 방지
+    document.addEventListener('wheel', function(e) {
+        if (e.ctrlKey) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+    
+    // 키보드 줌 방지 (Ctrl + +/-)
+    document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && (e.key === '+' || e.key === '-' || e.key === '=')) {
+            e.preventDefault();
+        }
+    });
+    
+    // 더블 탭 줌 방지
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function(e) {
+        const now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
+            e.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, false);
+}
+
 // DOM이 준비되면 이벤트 리스너 설정
 document.addEventListener('DOMContentLoaded', function() {
     initializeGallery();
+    preventZoom();
 });
 
 // 페이지 완전 로드 후에도 한 번 더 실행
 window.addEventListener('load', function() {
     animateOnScroll();
     initializeGallery();
+    preventZoom();
 });
 
 // 부드러운 스크롤 효과
