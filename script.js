@@ -61,7 +61,7 @@ function openLightbox(imageSrc) {
     const lightboxImg = document.getElementById('lightbox-img');
     
     lightboxImg.src = imageSrc;
-    lightbox.style.display = 'block';
+    lightbox.classList.add('active');
     
     // 현재 이미지 인덱스 저장
     const galleryImages = document.querySelectorAll('.gallery-item img');
@@ -80,12 +80,37 @@ function openLightbox(imageSrc) {
             showNextImage(e);
         }
     });
+    
+    // 모바일 터치 이벤트 추가
+    let startX = 0;
+    let startY = 0;
+    
+    lightbox.addEventListener('touchstart', function(e) {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+    });
+    
+    lightbox.addEventListener('touchend', function(e) {
+        const endX = e.changedTouches[0].clientX;
+        const endY = e.changedTouches[0].clientY;
+        const diffX = startX - endX;
+        const diffY = startY - endY;
+        
+        // 수평 스와이프 감지 (최소 50px)
+        if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY)) {
+            if (diffX > 0) {
+                showNextImage(e);
+            } else {
+                showPrevImage(e);
+            }
+        }
+    });
 }
 
 // 라이트박스 닫기
 function closeLightbox() {
     const lightbox = document.getElementById('lightbox');
-    lightbox.style.display = 'none';
+    lightbox.classList.remove('active');
 }
 
 // 이전 이미지 보기

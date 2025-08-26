@@ -88,6 +88,19 @@ body {
     transform: scale(1.02) translate3d(0, 0, 0);
 }
 
+/* 모바일 헤더 포토 최적화 */
+@media (max-width: 768px) {
+    .header-image {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-image {
+        max-width: 280px;
+    }
+}
+
 
 
 .main-title {
@@ -343,6 +356,23 @@ body {
     margin: 0 auto;
 }
 
+/* 모바일 갤러리 최적화 */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 20px;
+    }
+}
+
 .gallery-item {
     position: relative;
     overflow: hidden;
@@ -371,6 +401,19 @@ body {
     will-change: transform;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
+}
+
+/* 모바일 이미지 크기 최적화 */
+@media (max-width: 768px) {
+    .gallery-item img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-item img {
+        height: 250px;
+    }
 }
 
 .gallery-item:hover img {
@@ -447,6 +490,57 @@ body {
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
 }
 
+/* 모바일 라이트박스 최적화 */
+@media (max-width: 768px) {
+    #lightbox-img {
+        max-width: 95%;
+        max-height: 80%;
+    }
+    
+    .close-btn {
+        top: 20px;
+        right: 20px;
+        font-size: 35px;
+    }
+    
+    .nav-btn {
+        padding: 15px;
+    }
+    
+    .prev-btn {
+        left: 15px;
+    }
+    
+    .next-btn {
+        right: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    #lightbox-img {
+        max-width: 98%;
+        max-height: 75%;
+    }
+    
+    .close-btn {
+        top: 15px;
+        right: 15px;
+        font-size: 30px;
+    }
+    
+    .nav-btn {
+        padding: 12px;
+    }
+    
+    .prev-btn {
+        left: 10px;
+    }
+    
+    .next-btn {
+        right: 10px;
+    }
+}
+
 /* 달력 섹션 */
 .calendar {
     background: #f8f9fa;
@@ -521,12 +615,13 @@ body {
     }
     
     .gallery-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 0 15px;
     }
     
     .gallery-item img {
-        height: 220px;
+        height: 200px;
     }
     
     .time {
@@ -535,6 +630,11 @@ body {
     
     .venue-name {
         font-size: 24px;
+    }
+    
+    /* 섹션 패딩 조정 */
+    .date-time, .location, .message, .couple-info, .gallery, .calendar {
+        padding: 60px 20px;
     }
 }
 
