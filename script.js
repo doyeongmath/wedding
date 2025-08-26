@@ -81,28 +81,10 @@ function openLightbox(imageSrc) {
         }
     });
     
-    // 모바일 터치 이벤트 추가
-    let startX = 0;
-    let startY = 0;
-    
-    lightbox.addEventListener('touchstart', function(e) {
-        startX = e.touches[0].clientX;
-        startY = e.touches[0].clientY;
-    });
-    
-    lightbox.addEventListener('touchend', function(e) {
-        const endX = e.changedTouches[0].clientX;
-        const endY = e.changedTouches[0].clientY;
-        const diffX = startX - endX;
-        const diffY = startY - endY;
-        
-        // 수평 스와이프 감지 (최소 50px)
-        if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY)) {
-            if (diffX > 0) {
-                showNextImage(e);
-            } else {
-                showPrevImage(e);
-            }
+    // 클릭으로 닫기 기능
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+            closeLightbox();
         }
     });
 }
