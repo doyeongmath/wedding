@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vercel 디버깅</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px; 
+            background: #f0f0f0;
+        }
+        .test { 
+            margin: 20px 0; 
+            padding: 15px; 
+            background: white; 
+            border-radius: 5px;
+            border: 2px solid #ccc;
+        }
+        .success { border-color: green; }
+        .error { border-color: red; }
+        img { 
+            max-width: 200px; 
+            border: 2px solid blue; 
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Vercel 배포 디버깅</h1>
+    
+    <div class="test">
+        <h3>1. 기본 HTML/CSS 테스트</h3>
+        <p style="color: blue;">이 텍스트가 파란색으로 보이면 CSS가 작동합니다.</p>
+        <button onclick="alert('JavaScript 작동!')">JS 테스트</button>
+    </div>
+    
+    <div class="test">
+        <h3>2. 이미지 경로 테스트</h3>
+        <p>상대 경로 (./images/):</p>
+        <img src="./images/1 (1).jpg" alt="테스트1" 
+             onload="this.parentElement.className+=' success'" 
+             onerror="this.parentElement.className+=' error'">
+             
+        <p>절대 경로 (/images/):</p>
+        <img src="/images/1 (1).jpg" alt="테스트2" 
+             onload="this.parentElement.className+=' success'" 
+             onerror="this.parentElement.className+=' error'">
+             
+        <p>URL 인코딩된 경로:</p>
+        <img src="./images/1%20(1).jpg" alt="테스트3" 
+             onload="this.parentElement.className+=' success'" 
+             onerror="this.parentElement.className+=' error'">
+    </div>
+    
+    <div class="test">
+        <h3>3. CSS 파일 로딩 테스트</h3>
+        <p>외부 CSS: <span id="css-test">로딩 중...</span></p>
+    </div>
+    
+    <div class="test">
+        <h3>4. 디버깅 정보</h3>
+        <p><strong>현재 URL:</strong> <span id="url"></span></p>
+        <p><strong>User Agent:</strong> <span id="ua"></span></p>
+        <p><strong>Host:</strong> <span id="host"></span></p>
+    </div>
+
+    <script>
+        // 디버깅 정보 표시
+        document.getElementById('url').textContent = window.location.href;
+        document.getElementById('ua').textContent = navigator.userAgent;
+        document.getElementById('host').textContent = window.location.host;
+        
+        // CSS 로딩 확인
+        const testEl = document.createElement('div');
+        testEl.style.position = 'absolute';
+        testEl.style.visibility = 'hidden';
+        testEl.className = 'container';
+        document.body.appendChild(testEl);
+        
+        const styles = window.getComputedStyle(testEl);
+        if (styles.maxWidth !== 'none' && styles.maxWidth !== '') {
+            document.getElementById('css-test').textContent = '✅ CSS 로드됨';
+        } else {
+            document.getElementById('css-test').textContent = '❌ CSS 로드 실패';
+        }
+        
+        console.log('Vercel 디버깅 정보:', {
+            url: window.location.href,
+            host: window.location.host,
+            pathname: window.location.pathname,
+            search: window.location.search
+        });
+    </script>
+</body>
+</html>

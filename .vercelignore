@@ -1,0 +1,9 @@
+# Vercel ignore file
+.git
+node_modules
+.claude
+test_simple.html
+index_fixed.html
+docs/
+src/
+public/
