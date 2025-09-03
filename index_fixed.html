@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <title>박도영 ♥ 손민정 결혼식에 초대합니다</title>
+    
+    <!-- 외부 폰트 및 아이콘 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* 기본 스타일 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #fafafa;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+        }
+
+        /* 헤더 스타일 */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px 60px;
+            position: relative;
+        }
+
+        .wedding-date {
+            font-size: 18px;
+            font-weight: 300;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+
+        .header-photo {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .header-image {
+            width: 100%;
+            max-width: 350px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .main-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 40px 0;
+            line-height: 1.1;
+        }
+
+        .couple-names {
+            font-size: 32px;
+            font-weight: 500;
+            margin: 30px 0;
+            letter-spacing: 2px;
+        }
+
+        .heart {
+            color: #ff6b6b;
+            margin: 0 25px;
+            font-size: 36px;
+        }
+
+        /* 갤러리 스타일 */
+        .gallery {
+            background: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .gallery h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 50px;
+        }
+
+        .gallery-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .nav-arrow {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .page-indicator {
+            display: flex;
+            gap: 8px;
+        }
+
+        .page-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            cursor: pointer;
+        }
+
+        .page-dot.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .gallery-card-container {
+            position: relative;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .gallery-card {
+            display: none;
+        }
+
+        .gallery-card.active {
+            display: block;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            max-width: 350px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .header {
+                padding: 60px 20px 40px;
+            }
+            
+            .main-title {
+                font-size: 36px;
+            }
+            
+            .couple-names {
+                font-size: 24px;
+            }
+            
+            .header-image {
+                max-width: 300px;
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 헤더 섹션 -->
+        <header class="header">
+            <div class="wedding-date">2026.01.04</div>
+            
+            <!-- 헤더 포토 -->
+            <div class="header-photo">
+                <img src="images/1 (1).jpg" alt="웨딩 헤더 이미지" class="header-image">
+            </div>
+            
+            <h1 class="main-title">우리,<br>결혼합니다</h1>
+            <div class="couple-names">
+                <span class="groom">박도영</span>
+                <span class="heart">♥</span>
+                <span class="bride">손민정</span>
+            </div>
+        </header>
+
+        <!-- 갤러리 섹션 -->
+        <section class="gallery">
+            <h2>소중한 순간들</h2>
+            
+            <!-- 갤러리 네비게이션 -->
+            <div class="gallery-nav">
+                <button class="nav-arrow prev-arrow" onclick="prevGalleryPage()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="page-indicator">
+                    <span class="page-dot active" onclick="goToCard(1)"></span>
+                    <span class="page-dot" onclick="goToCard(2)"></span>
+                    <span class="page-dot" onclick="goToCard(3)"></span>
+                    <span class="page-dot" onclick="goToCard(4)"></span>
+                    <span class="page-dot" onclick="goToCard(5)"></span>
+                    <span class="page-dot" onclick="goToCard(6)"></span>
+                    <span class="page-dot" onclick="goToCard(7)"></span>
+                    <span class="page-dot" onclick="goToCard(8)"></span>
+                    <span class="page-dot" onclick="goToCard(9)"></span>
+                    <span class="page-dot" onclick="goToCard(10)"></span>
+                    <span class="page-dot" onclick="goToCard(11)"></span>
+                    <span class="page-dot" onclick="goToCard(12)"></span>
+                </div>
+                <button class="nav-arrow next-arrow" onclick="nextGalleryPage()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <!-- 갤러리 카드 -->
+            <div class="gallery-card-container">
+                <div class="gallery-card active" id="card1">
+                    <img src="images/1 (1).jpg" alt="추억 사진 1" loading="lazy">
+                </div>
+                <div class="gallery-card" id="card2">
+                    <img src="images/1 (2).jpg" alt="추억 사진 2" loading="lazy">
+                </div>
+                <div class="gallery-card" id="card3">
+                    <img src="images/1 (3).jpg" alt="추억 사진 3" loading="lazy">
+                </div>
+                <div class="gallery-card" id="card4">
+                    <img src="images/1 (4).jpg" alt="추억 사진 4" loading="lazy">
+                </div>
+                <div class="gallery-card" id="card5">
+                    <img src="images/1 (5).jpg" alt="추억 사진 5" loading="lazy">
+                </div>
+                <div class="gallery-card" id="card6">
+                    <img src="images/1 (6).jpg" alt="추억 사진 6" loading="lazy">
+                </div>
+                <div class="gallery-card" id="card7">
+                    <img src="images/1 (7).jpg" alt="추억 사진 7" loading="lazy">
+                </div>
+                <div class="gallery-card" id="card8">
+                    <img src="images/1 (8).jpg" alt="추억 사진 8" loading="lazy">
+                </div>
+                <div class="gallery-card" id="card9">
+                    <img src="images/1 (9).jpg" alt="추억 사진 9" loading="lazy">
+                </div>
+                <div class="gallery-card" id="card10">
+                    <img src="images/1 (10).jpg" alt="추억 사진 10" loading="lazy">
+                </div>
+                <div class="gallery-card" id="card11">
+                    <img src="images/1 (11).jpg" alt="추억 사진 11" loading="lazy">
+                </div>
+                <div class="gallery-card" id="card12">
+                    <img src="images/1 (12).jpg" alt="추억 사진 12" loading="lazy">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // 갤러리 네비게이션
+        let currentCard = 1;
+        const totalCards = 12;
+
+        function showCard(cardNumber) {
+            // 모든 카드 숨기기
+            for (let i = 1; i <= totalCards; i++) {
+                const card = document.getElementById(`card${i}`);
+                if (card) {
+                    card.classList.remove('active');
+                }
+            }
+            
+            // 선택된 카드 보이기
+            const selectedCard = document.getElementById(`card${cardNumber}`);
+            if (selectedCard) {
+                selectedCard.classList.add('active');
+            }
+            
+            currentCard = cardNumber;
+            updatePageIndicator();
+        }
+
+        function nextGalleryPage() {
+            if (currentCard < totalCards) {
+                showCard(currentCard + 1);
+            }
+        }
+
+        function prevGalleryPage() {
+            if (currentCard > 1) {
+                showCard(currentCard - 1);
+            }
+        }
+
+        function goToCard(cardNumber) {
+            if (cardNumber >= 1 && cardNumber <= totalCards) {
+                showCard(cardNumber);
+            }
+        }
+
+        function updatePageIndicator() {
+            document.querySelectorAll('.page-dot').forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (index === currentCard - 1) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+
+        console.log('스크립트 로드됨');
+    </script>
+</body>
+</html>

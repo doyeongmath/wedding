@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>간단 테스트</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px; 
+            background: lightblue;
+        }
+        .test-box { 
+            background: white; 
+            padding: 20px; 
+            margin: 20px 0; 
+            border: 2px solid red;
+        }
+        img { 
+            max-width: 300px; 
+            border: 3px solid green; 
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: red;">🔥 기본 테스트</h1>
+    
+    <div class="test-box">
+        <h2>CSS 테스트</h2>
+        <p>이 텍스트가 보이고 배경이 파란색이면 CSS가 작동합니다.</p>
+    </div>
+    
+    <div class="test-box">
+        <h2>이미지 테스트 1</h2>
+        <p>경로: images/1 (1).jpg</p>
+        <img src="images/1 (1).jpg" alt="테스트 이미지 1" onload="alert('이미지 1 로드 성공!')" onerror="alert('이미지 1 로드 실패!')">
+    </div>
+    
+    <div class="test-box">
+        <h2>이미지 테스트 2</h2>
+        <p>경로: images/1 (2).jpg</p>
+        <img src="images/1 (2).jpg" alt="테스트 이미지 2" onload="alert('이미지 2 로드 성공!')" onerror="alert('이미지 2 로드 실패!')">
+    </div>
+
+    <script>
+        console.log('JavaScript 작동 확인');
+        console.log('현재 경로:', window.location.href);
+        alert('JavaScript가 작동합니다!');
+    </script>
+</body>
+</html>
