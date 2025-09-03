@@ -82,14 +82,18 @@ body {
 .header-image {
     width: 100%;
     max-width: 350px;
-    height: auto;
+    height: 400px;
+    object-fit: cover;
     border-radius: 20px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s ease-out;
-    /* 초고속 최적화 */
+    /* Performance optimizations */
     will-change: transform;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
+    image-rendering: auto;
+    image-rendering: crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
 }
 
 .header-image:hover {
@@ -550,10 +554,15 @@ body {
 .gallery-card img {
     width: 100%;
     max-width: 350px;
-    height: auto;
+    height: 300px;
+    object-fit: cover;
     border-radius: 20px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease;
+    /* Performance optimizations for large images */
+    image-rendering: auto;
+    image-rendering: crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
 }
 
 @keyframes slideIn {
