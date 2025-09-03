@@ -82,8 +82,9 @@ body {
 .header-image {
     width: 100%;
     max-width: 350px;
-    height: 400px;
-    object-fit: cover;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
     border-radius: 20px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s ease-out;
@@ -339,7 +340,13 @@ body {
     }
     
     .gallery-card img {
-        max-width: 280px;
+        max-width: 300px;
+        max-height: 400px;
+    }
+    
+    .gallery-card-container {
+        max-width: 320px;
+        min-height: 250px;
     }
 }
 
@@ -536,14 +543,18 @@ body {
 /* 갤러리 카드 */
 .gallery-card-container {
     position: relative;
-    max-width: 400px;
+    max-width: 450px;
+    min-height: 300px;
     margin: 0 auto;
-    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .gallery-card {
     display: none;
     text-align: center;
+    width: 100%;
     animation: slideIn 0.5s ease-in-out;
 }
 
@@ -553,16 +564,27 @@ body {
 
 .gallery-card img {
     width: 100%;
-    max-width: 350px;
-    height: 300px;
-    object-fit: cover;
+    max-width: 400px;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
     border-radius: 20px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease;
+    /* Center the image */
+    display: block;
+    margin: 0 auto;
     /* Performance optimizations for large images */
     image-rendering: auto;
     image-rendering: crisp-edges;
     image-rendering: -webkit-optimize-contrast;
+}
+
+/* Special handling for landscape images (2, 12) */
+.gallery-card img[src*="1 (2)"], 
+.gallery-card img[src*="1 (12)"] {
+    max-width: 450px;
+    max-height: 300px;
 }
 
 @keyframes slideIn {
