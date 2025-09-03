@@ -1,0 +1,21 @@
+{
+  "name": "wedding-invitation",
+  "version": "2.0.0",
+  "description": "박도영 & 손민정 결혼식 초대장 웹사이트",
+  "type": "module",
+  "scripts": {
+    "dev": "npx http-server public -p 3000 -c-1 --cors",
+    "preview": "npx http-server . -p 3000 -c-1 --cors",
+    "build": "echo 'Static site - no build required'",
+    "deploy": "echo 'Deploy to your preferred hosting service'"
+  },
+  "keywords": ["wedding", "invitation", "website", "korean"],
+  "author": "박도영, 손민정",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

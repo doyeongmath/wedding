@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <title>박도영 ♥ 손민정 결혼식에 초대합니다</title>
+    
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../src/styles/base.css">
+    <link rel="stylesheet" href="../src/styles/header.css">
+    <link rel="stylesheet" href="../src/styles/components.css">
+    <link rel="stylesheet" href="../src/styles/gallery.css">
+    <link rel="stylesheet" href="../src/styles/responsive.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="wedding-date">2026.01.04</div>
+            
+            <!-- Header Photo -->
+            <div class="header-photo">
+                <img src="../assets/images/header/main-header.jpg" alt="웨딩 헤더 이미지" class="header-image">
+            </div>
+            
+            <h1 class="main-title">우리,<br>결혼합니다</h1>
+            <div class="couple-names">
+                <span class="groom">박도영</span>
+                <span class="heart">♥</span>
+                <span class="bride">손민정</span>
+            </div>
+            
+            <!-- Music Control -->
+            <div class="music-control">
+                <button id="musicToggle" class="music-btn">
+                    <i class="fas fa-music"></i>
+                    <span id="musicText">음악 켜기</span>
+                </button>
+                <audio id="bgMusic" loop>
+                    <source src="../assets/audio/wedding-song.mp3" type="audio/mpeg">
+                    <source src="../assets/audio/wedding-song.ogg" type="audio/ogg">
+                    브라우저가 오디오를 지원하지 않습니다.
+                </audio>
+            </div>
+        </header>
+
+        <!-- Date Time Section -->
+        <section class="date-time">
+            <div class="date-info">
+                <div class="day">일요일</div>
+                <div class="time">오후 1시 40분</div>
+                <div class="full-date">2026년 1월 4일</div>
+            </div>
+            
+            <!-- Countdown Timer -->
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">DAYS</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">HOUR</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">MINS</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">SEC</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section class="location">
+            <h2>결혼식 장소</h2>
+            <div class="venue">
+                <div class="venue-name">루이비스컨벤션 송파문정점</div>
+                <div class="venue-address">서울 송파구 문정동</div>
+            </div>
+            <button class="map-btn" onclick="openMap()">
+                <i class="fas fa-map-marker-alt"></i>
+                지도 보기
+            </button>
+        </section>
+
+        <!-- Message Section -->
+        <section class="message">
+            <p>소중한 분들을 초대합니다</p>
+            <p>복잡한 인생의 방정식에서<br>
+            우리가 찾은 해답은 바로 사랑입니다.</p>
+            <p>이제 우리의 사랑을 영원히 함께 증명하겠습니다.</p>
+            <p>서로 마주 보며 다져온 사랑을<br>
+            이제 함께 한곳을 바라보며 걸어갈 수 있는<br>
+            큰 사랑으로 키우고자 합니다.</p>
+            <p>저희 두 사람이<br>
+            사랑의 이름으로 지켜나갈 수 있게<br>
+            앞날을 축복해 주시면 감사하겠습니다.</p>
+        </section>
+
+        <!-- Couple Info Section -->
+        <section class="couple-info">
+            <div class="groom-side">
+                <h3>신랑측</h3>
+                <p>박도영</p>
+            </div>
+            <div class="bride-side">
+                <h3>신부측</h3>
+                <p>손민정</p>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery">
+            <h2>소중한 순간들</h2>
+            
+            <!-- Gallery Navigation -->
+            <div class="gallery-nav">
+                <button class="nav-arrow prev-arrow" onclick="prevGalleryPage()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="page-indicator">
+                    <span class="page-dot active" onclick="goToCard(1)"></span>
+                    <span class="page-dot" onclick="goToCard(2)"></span>
+                    <span class="page-dot" onclick="goToCard(3)"></span>
+                    <span class="page-dot" onclick="goToCard(4)"></span>
+                    <span class="page-dot" onclick="goToCard(5)"></span>
+                    <span class="page-dot" onclick="goToCard(6)"></span>
+                    <span class="page-dot" onclick="goToCard(7)"></span>
+                    <span class="page-dot" onclick="goToCard(8)"></span>
+                    <span class="page-dot" onclick="goToCard(9)"></span>
+                    <span class="page-dot" onclick="goToCard(10)"></span>
+                    <span class="page-dot" onclick="goToCard(11)"></span>
+                    <span class="page-dot" onclick="goToCard(12)"></span>
+                </div>
+                <button class="nav-arrow next-arrow" onclick="nextGalleryPage()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <!-- Gallery Cards -->
+            <div class="gallery-card-container">
+                <div class="gallery-card active" id="card1">
+                    <img src="../assets/images/gallery/photo-01.jpg" alt="추억 사진 1" loading="lazy" onclick="openLightbox(this.src)">
+                </div>
+                <div class="gallery-card" id="card2">
+                    <img src="../assets/images/gallery/photo-02.jpg" alt="추억 사진 2" loading="lazy" onclick="openLightbox(this.src)">
+                </div>
+                <div class="gallery-card" id="card3">
+                    <img src="../assets/images/gallery/photo-03.jpg" alt="추억 사진 3" loading="lazy" onclick="openLightbox(this.src)">
+                </div>
+                <div class="gallery-card" id="card4">
+                    <img src="../assets/images/gallery/photo-04.jpg" alt="추억 사진 4" loading="lazy" onclick="openLightbox(this.src)">
+                </div>
+                <div class="gallery-card" id="card5">
+                    <img src="../assets/images/gallery/photo-05.jpg" alt="추억 사진 5" loading="lazy" onclick="openLightbox(this.src)">
+                </div>
+                <div class="gallery-card" id="card6">
+                    <img src="../assets/images/gallery/photo-06.jpg" alt="추억 사진 6" loading="lazy" onclick="openLightbox(this.src)">
+                </div>
+                <div class="gallery-card" id="card7">
+                    <img src="../assets/images/gallery/photo-07.jpg" alt="추억 사진 7" loading="lazy" onclick="openLightbox(this.src)">
+                </div>
+                <div class="gallery-card" id="card8">
+                    <img src="../assets/images/gallery/photo-08.jpg" alt="추억 사진 8" loading="lazy" onclick="openLightbox(this.src)">
+                </div>
+                <div class="gallery-card" id="card9">
+                    <img src="../assets/images/gallery/photo-09.jpg" alt="추억 사진 9" loading="lazy" onclick="openLightbox(this.src)">
+                </div>
+                <div class="gallery-card" id="card10">
+                    <img src="../assets/images/gallery/photo-10.jpg" alt="추억 사진 10" loading="lazy" onclick="openLightbox(this.src)">
+                </div>
+                <div class="gallery-card" id="card11">
+                    <img src="../assets/images/gallery/photo-11.jpg" alt="추억 사진 11" loading="lazy" onclick="openLightbox(this.src)">
+                </div>
+                <div class="gallery-card" id="card12">
+                    <img src="../assets/images/gallery/photo-12.jpg" alt="추억 사진 12" loading="lazy" onclick="openLightbox(this.src)">
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox Modal -->
+        <div id="lightbox" class="lightbox">
+            <span class="close-btn" onclick="closeLightbox()">&times;</span>
+            <button class="nav-btn prev-btn" onclick="showPrevImage(event)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="nav-btn next-btn" onclick="showNextImage(event)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <img id="lightbox-img" src="" alt="확대된 이미지">
+        </div>
+
+        <!-- Calendar Section -->
+        <section class="calendar">
+            <h2>2026년 1월</h2>
+            <div class="calendar-grid">
+                <div class="weekdays">
+                    <span>일</span>
+                    <span>월</span>
+                    <span>화</span>
+                    <span>수</span>
+                    <span>목</span>
+                    <span>금</span>
+                    <span>토</span>
+                </div>
+                <div class="days">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span class="wedding-day">4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                    <span>11</span>
+                    <span>12</span>
+                    <span>13</span>
+                    <span>14</span>
+                    <span>15</span>
+                    <span>16</span>
+                    <span>17</span>
+                    <span>18</span>
+                    <span>19</span>
+                    <span>20</span>
+                    <span>21</span>
+                    <span>22</span>
+                    <span>23</span>
+                    <span>24</span>
+                    <span>25</span>
+                    <span>26</span>
+                    <span>27</span>
+                    <span>28</span>
+                    <span>29</span>
+                    <span>30</span>
+                    <span>31</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="../src/scripts/main.js"></script>
+</body>
+</html>

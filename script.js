@@ -220,7 +220,7 @@ function updateCountdown() {
 
 // 갤러리 카드 네비게이션
 let currentCard = 1;
-const totalCards = 8;
+const totalCards = 12;
 let startX = 0;
 let endX = 0;
 
