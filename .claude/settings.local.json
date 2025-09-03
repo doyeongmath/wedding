@@ -5,7 +5,8 @@
       "Bash(cp:*)",
       "Bash(tree:*)",
       "Bash(python:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(du:*)"
     ],
     "deny": [],
     "ask": []
