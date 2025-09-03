@@ -6,7 +6,9 @@
       "Bash(tree:*)",
       "Bash(python:*)",
       "Bash(find:*)",
-      "Bash(du:*)"
+      "Bash(du:*)",
+      "Bash(py --version)",
+      "Bash(pip install:*)"
     ],
     "deny": [],
     "ask": []
